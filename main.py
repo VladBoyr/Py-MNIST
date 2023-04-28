@@ -2,8 +2,13 @@ from keras import models
 from keras import layers
 from keras.datasets import mnist
 from keras.utils import to_categorical
+import matplotlib.pyplot as plt
 
 (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
+digit = train_images[4]
+plt.imshow(digit, cmap=plt.cm.binary)
+plt.show()
+
 train_images = train_images.reshape((60000, 28 * 28)).astype('float32') / 255
 test_images = test_images.reshape((10000, 28 * 28)).astype('float32') / 255
 train_labels = to_categorical(train_labels)
